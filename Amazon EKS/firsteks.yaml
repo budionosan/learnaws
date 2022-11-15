@@ -1,0 +1,22 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: budionosaneks
+  region: us-west-2
+  version: "1.23"
+
+availabilityZones: ["us-west-2a", "us-west-2b"]
+
+managedNodeGroups:
+- name: nodegroup
+  desiredCapacity: 2
+  instanceType: t3.small
+  
+# To enable all of the control plane logs, uncomment below:
+#cloudWatch:
+ # clusterLogging:
+  #  enableTypes: ["*"]
+
+secretsEncryption:
+  keyARN: arn:aws:kms:us-west-2:<YOURAWSACCOUNTID>:key/3a2b07ba-e84c-4bc8-b3a1-6f18b5de3be6
