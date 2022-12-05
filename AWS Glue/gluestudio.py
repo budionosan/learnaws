@@ -13,7 +13,7 @@ job = Job(glueContext)
 job.init(args["JOB_NAME"], args)
 
 datacatalog = glueContext.create_dynamic_frame.from_catalog(
-    database = "finalthesisbudionosan",
+    database = "budionosan",
     table_name = "mergeclean_csv",
     transformation_ctx = "datacatalog"
 )
@@ -46,8 +46,8 @@ applymapping = ApplyMapping.apply(
 
 redshift = glueContext.write_dynamic_frame.from_jdbc_conf(
 	frame = applymapping, 
-	catalog_connection = "AwsGlueDataBrew-finalthesisbudionosan", 
-	connection_options = {"dbtable": "forecast", "database": "dev"}, 
+	catalog_connection = "AwsGlueDataBrew-gluejob", 
+	connection_options = {"dbtable": "sales", "database": "dev"}, 
 	redshift_tmp_dir = args["TempDir"]
 )
 
