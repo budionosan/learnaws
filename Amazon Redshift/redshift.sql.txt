@@ -1,0 +1,17 @@
+CREATE TABLE sales (
+	Row_ID integer,
+	Order_ID integer,
+	Order_Priority varchar(50),
+	Order_Quantity int,
+	Sales float,
+	Discount float,
+	Ship_Mode varchar(50)
+);
+
+COPY sales
+FROM 's3://redshiftsqlworkbench/redshiftsqlworkbench.csv'
+IAM_ROLE 'arn:aws:iam::528330824487:role/redshiftsqlworkbench'
+DELIMITER ','
+CSV
+IGNOREHEADER 1
+REGION 'eu-west-2';
