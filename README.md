@@ -1,6 +1,6 @@
 # learnaws
 
-This repository for source code or anywhere after learn AWS on my Medium 
+This repository for source code or anywhere after learn AWS on my Medium - budionosan.medium.com
 
 - AWS Glue : Source code from AWS Glue Data Catalog to Amazon Redshift
   - gluestudio.py : Python code when use for ETL jobs
