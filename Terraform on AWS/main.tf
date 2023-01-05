@@ -52,3 +52,13 @@ resource "aws_security_group" "app_server" {
     Name = "Allow HTTP, SSH and custom TCP"
   }
 }
+
+resource "aws_instance" "app_server" {
+  ami             = "ami-0ceecbb0f30a902a6"
+  instance_type   = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.app_server.id]
+
+  tags = {
+    Name = "firstuseterraform"
+  }
+}
